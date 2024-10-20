@@ -1,11 +1,7 @@
-import React from 'react'
+import PeopleList from "@/components/Lists/PeopleList";
 
 const Home = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <PeopleList />;
+};
 
-export default Home
+export default Home;
