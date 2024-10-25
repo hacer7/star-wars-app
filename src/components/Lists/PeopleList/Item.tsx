@@ -19,7 +19,7 @@ const Item: FC<Props> = ({ person }) => {
   const [films, setFilms] = useState<IFilm[]>([]);
 
   const [getStarShipById] = useLazyGetStarShipByIdQuery()
-  const [starShips, setStarShips] = useState<IStarShip[]>([]);
+  const [starShips, setStarShips] = useState<IStarShip[]>();
 
   useEffect(() => {
     if (!isOpen) return;

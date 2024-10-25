@@ -14,7 +14,7 @@ interface Props {
   open: boolean;
   handleClose: (value: boolean) => void;
   person: IPerson;
-  starShips: IStarShip[];
+  starShips?: IStarShip[];
   films: IFilm[];
 }
 
@@ -71,7 +71,7 @@ const ViewPersonModal: FC<Props> = ({
       },
       position: { x: 500, y: 50 + 300 * index },
     })),
-    ...starShips.map((starShip, index) => ({
+    ...(starShips ?? []).map((starShip, index) => ({
       id: starShip.id?.toString(),
       type: "imageNode",
       data: {
@@ -95,7 +95,7 @@ const ViewPersonModal: FC<Props> = ({
 
   return (
     <Modal open={open} onClose={handleClose}>
-      {open && (films.length === 0) ? (
+      {open && (films.length === 0 || !starShips) ? (
         <Loader />
       ) : (
         <div className={s.wrapper}>
