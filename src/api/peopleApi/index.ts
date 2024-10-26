@@ -4,9 +4,9 @@ import { IGetPeopleRequest, IGetPeopleResponse } from "./peopleApi.types";
 const peopleApi = api.injectEndpoints({
   endpoints: (build) => ({
     getPeople: build.query<IGetPeopleResponse, IGetPeopleRequest>({
-      query: ({page, name__contains}) => ({
+      query: ({page, search}) => ({
         url: "people",
-        params: name__contains ? {page, name__contains} : {page}
+        params: search ? {page, search} : {page}
       }),
     }),
   }),

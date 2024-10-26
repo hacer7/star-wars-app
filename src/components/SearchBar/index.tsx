@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import SearchIcon from '@mui/icons-material/Search';
-import { capitalizeString } from "@/utils/capitalizeString";
 
 const SearchBar = () => {
   const dispatch = useAppDispatch();
@@ -15,8 +14,7 @@ const SearchBar = () => {
 
   const debouncedValue = useDebounce(search);
   useEffect(() => {
-    const searchString = capitalizeString(debouncedValue)
-    dispatch(setSearchValue(searchString));
+    dispatch(setSearchValue(debouncedValue));
   }, [debouncedValue]);
 
   return (
