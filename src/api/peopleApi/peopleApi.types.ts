@@ -1,6 +1,6 @@
 export interface IGetPeopleRequest {
   page: number
-  name?: string
+  name__contains?: string
 }
 
 export interface IGetPeopleResponse {

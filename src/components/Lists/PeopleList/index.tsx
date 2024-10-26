@@ -18,7 +18,7 @@ const PeopleList = () => {
   const { searchValue } = useAppSelector((state) => state.search);
 
   useEffect(() => {
-    getPeople({ page, name: searchValue });
+    getPeople({ page, name__contains: searchValue });
   }, [page, searchValue]);
 
   if (isLoading) return <Loader />;
