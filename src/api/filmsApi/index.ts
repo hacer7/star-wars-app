@@ -1,15 +1,17 @@
 import { api } from "..";
-import { IFilm } from "./filmsApi.types";
+import { IFilm, IGetFilmsResponse } from "./filmsApi.types";
 
 const filmsApi = api.injectEndpoints({
   endpoints: (build) => ({
-    getFilmById: build.query<IFilm, number>({
-      query: (id) => ({
-        url: `films/${id}`,
+    getFilms: build.query<IFilm[], number>({
+      query: (characters__contains) => ({
+        url: `films`,
+        params: {characters__contains}
       }),
+      transformResponse: (response: IGetFilmsResponse) => response.results
     }),
   }),
   overrideExisting: false,
 });
 
-export const { useLazyGetFilmByIdQuery } = filmsApi;
+export const { useGetFilmsQuery } = filmsApi;

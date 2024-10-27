@@ -1,3 +1,15 @@
+export interface IGetStarShipsRequest {
+  pilots__contains: number
+  films__in: number[]
+}
+
+export interface IGetStarShipsResponse {
+  count: number
+  next: string
+  previous: string
+  results: IStarShip[]
+}
+
 export interface IStarShip {
   id: number
   name: string

@@ -6,7 +6,7 @@ const peopleApi = api.injectEndpoints({
     getPeople: build.query<IGetPeopleResponse, IGetPeopleRequest>({
       query: ({page, search}) => ({
         url: "people",
-        params: search ? {page, search} : {page}
+        params: {page, search}
       }),
     }),
   }),

@@ -1,15 +1,17 @@
 import { api } from "..";
-import { IStarShip } from "./starShipsApi.types";
+import { IGetStarShipsRequest, IGetStarShipsResponse, IStarShip } from "./starShipsApi.types";
 
 const starShipsApi = api.injectEndpoints({
   endpoints: (build) => ({
-    getStarShipById: build.query<IStarShip, number>({
-      query: (id) => ({
-        url: `starships/${id}`,
+    getStarShips: build.query<IStarShip[], IGetStarShipsRequest>({
+      query: ({pilots__contains, films__in}) => ({
+        url: `starships`,
+        params: {pilots__contains, films__in}
       }),
+      transformResponse: (response: IGetStarShipsResponse) => response.results
     }),
   }),
   overrideExisting: false,
 });
 
-export const { useLazyGetStarShipByIdQuery } = starShipsApi;
+export const { useGetStarShipsQuery } = starShipsApi;

@@ -1,3 +1,10 @@
+export interface IGetFilmsResponse {
+  count: number
+  next: string
+  previous: string
+  results: IFilm[]
+}
+
 export interface IFilm {
   id: number
   title: string
