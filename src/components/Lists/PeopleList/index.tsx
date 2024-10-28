@@ -1,27 +1,27 @@
-"use client";
-import Item from "./Item";
-import { useLazyGetPeopleQuery } from "@/api/peopleApi";
-import Loader from "@/components/Loader";
-import s from "./style.module.scss";
-import { useEffect, useState } from "react";
-import { useAppSelector } from "@/store/hooks";
-import Pagination from "@mui/material/Pagination";
+'use client'
+import Item from './Item'
+import { useLazyGetPeopleQuery } from '@/api/peopleApi'
+import Loader from '@/components/Loader'
+import s from './style.module.scss'
+import { useEffect, useState } from 'react'
+import { useAppSelector } from '@/store/hooks'
+import Pagination from '@mui/material/Pagination'
 
 const PeopleList = () => {
-  const [getPeople, { data, isLoading }] = useLazyGetPeopleQuery();
+  const [getPeople, { data, isLoading }] = useLazyGetPeopleQuery()
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1)
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value);
-  };
+    setPage(value)
+  }
 
-  const { searchValue } = useAppSelector((state) => state.search);
+  const { searchValue } = useAppSelector((state) => state.search)
 
   useEffect(() => {
-    getPeople({ page, search: searchValue });
-  }, [page, searchValue]);
+    getPeople({ page, search: searchValue })
+  }, [page, searchValue])
 
-  if (isLoading) return <Loader />;
+  if (isLoading) return <Loader />
   return (
     <div className={s.container}>
       <div className={s.wrapper}>
@@ -37,7 +37,7 @@ const PeopleList = () => {
         size="large"
       />
     </div>
-  );
-};
+  )
+}
 
-export default PeopleList;
+export default PeopleList

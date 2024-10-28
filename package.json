@@ -17,6 +17,7 @@
     "@mui/material": "^6.1.4",
     "@reduxjs/toolkit": "^2.3.0",
     "@xyflow/react": "^12.3.2",
+    "cross-fetch": "^4.0.0",
     "lodash": "^4.17.21",
     "next": "14.2.15",
     "react": "^18",

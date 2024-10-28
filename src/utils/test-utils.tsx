@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import StoreProvider from "@/store/StoreProvider";
-import ThemeProvider from "@/assets/ThemeProvider";
+import ThemeProvider from "@/app/assets/ThemeProvider";
 
 interface AllProvidersProps {
   children: ReactNode;
