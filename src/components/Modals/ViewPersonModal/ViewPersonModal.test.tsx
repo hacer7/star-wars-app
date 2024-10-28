@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@/utils/test-utils'
+import { render, screen } from '@/utils/test-utils'
 import ViewPersonModal from '.'
 import { IPerson } from '@/api/peopleApi/peopleApi.types'
 import { useGetFilmsQuery } from '@/api/filmsApi'
